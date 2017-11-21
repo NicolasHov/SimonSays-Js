@@ -1,0 +1,35 @@
+.simon {
+  margin-left: 42%;
+  margin-top: 5%;
+  width: 200px;
+  border-radius: 10px;
+  text-align: center;
+  display: flex;
+  flex-wrap: wrap
+}
+
+.red, .blue, .yellow, .green {
+  border-radius: 50px;
+  height: 100px;
+  width: 100px
+}
+.red {
+  background-color : red;
+}
+
+.blue {
+  background-color : blue;
+}
+
+.yellow {
+  background-color : yellow;
+
+}
+
+.green {
+  background-color : green;
+}
+
+.container {
+  text-align: center;
+}
