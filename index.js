@@ -7,6 +7,8 @@ var elem_purple = document.getElementById("purple");
 var elem_yellow = document.getElementById("yellow");
 var elem_green = document.getElementById("green");
 
+tab = ["red", "purple", "yellow", "green"];
+
 function getRandomIntInclusive(min, max) {
   min = Math.ceil(min);
   max = Math.floor(max);
@@ -17,6 +19,9 @@ function playSequence() {
   number_list = []; // permet de n'avoir q'un seul élément
   number_list.push(getRandomIntInclusive(1, 4));
   console.log(number_list[0]);
+  changeOpacity(document.getElementById(tab[number_list[0]]));
+
+  changeOpacity();
   return number_list;
 }
 
@@ -26,28 +31,27 @@ function changeOpacity(elem) {
 
 };
 
-function elem_clicked(elem) {
-  elem_clicked = elem.className.to_int;
+function showNumberElem(elem) {
+  var elem_clicked = elem.getAttribute("class");
   console.log(elem_clicked);
-  return elem_clicked;
+  // return elem_clicked;
 };
-
 
 elem_red.addEventListener('click', function() {
   changeOpacity(elem_red);
-  elem_clicked(elem_red);
+  showNumberElem(elem_red);
 });
 elem_purple.addEventListener('click', function() {
   changeOpacity(elem_purple);
-  elem_clicked(elem_red);
+  showNumberElem(elem_purple);
 });
 elem_yellow.addEventListener('click', function() {
     changeOpacity(elem_yellow);
-    elem_clicked(elem_yellow);
+    showNumberElem(elem_yellow);
 });
 elem_green.addEventListener('click', function() {
     changeOpacity(elem_green);
-    elem_clicked(elem_green);
+    showNumberElem(elem_green);
 });
 
 function chooseNumber() {
