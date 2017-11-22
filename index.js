@@ -19,7 +19,7 @@ function playSequence() {
   number_list = []; // permet de n'avoir q'un seul élément
   number_list.push(getRandomIntInclusive(1, 4));
   console.log(number_list[0]);
-  changeOpacity(document.getElementById(tab[number_list[0]]));
+  changeOpacity(document.getElementById(tab[number_list[0]-1]));
 
   changeOpacity();
   return number_list;
