@@ -8,25 +8,24 @@
   flex-wrap: wrap
 }
 
-.red, .blue, .yellow, .green {
+#red, #purple, #yellow, #green {
   border-radius: 50px;
   height: 100px;
   width: 100px
 }
-.red {
+#red {
   background-color : red;
 }
 
-.blue {
-  background-color : blue;
+#purple {
+  background-color : #570095;
 }
 
-.yellow {
+#yellow {
   background-color : yellow;
-
 }
 
-.green {
+#green {
   background-color : green;
 }
 
