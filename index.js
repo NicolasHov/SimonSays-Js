@@ -2,6 +2,7 @@
 var elem_clicked = 0
 var number_list = [];
 
+
 var elem_red = document.getElementById("red");
 var elem_purple = document.getElementById("purple");
 var elem_yellow = document.getElementById("yellow");
@@ -18,7 +19,7 @@ function getRandomIntInclusive(min, max) {
 }
 
 function playSequence() {
-  number_list = []; // permet de n'avoir q'un seul élément
+  number_list = []; // je réinitialise pour l'instant
   number_list.push(getRandomIntInclusive(1, 4));
   console.log("number : "+ number_list[0]);
   changeOpacity(document.getElementById(tab[number_list[0]-1]));
@@ -41,9 +42,13 @@ function isGoodAnswer(number_clicked, number) {
   // déterminer si la couleur cliquée (elem_clicked) est bien celle indiquée(number_list[0])
     if (number_clicked == number) {
       console.log("gagné !");
+      document.getElementById("result").innerHTML = "Gagné !";
+      setTimeout( function(){ document.getElementById("result").innerHTML = ""; }, 2000);
     }
     else {
       console.log("perdu !");
+      document.getElementById("result").innerHTML = "Perdu !";
+      setTimeout( function(){ document.getElementById("result").innerHTML = ""; }, 2000);
     }
     button.disabled = false;
 }
@@ -68,6 +73,7 @@ elem_green.addEventListener('click', function() {
 
 button.addEventListener('click', function() {
     playSequence();
+    document.getElementById("result").innerHTML = "";
     button.disabled = true;
 });
 

@@ -29,6 +29,10 @@
   background-color : green;
 }
 
+#result {
+  color : red;
+  font-size: 2em;
+}
 .container {
   text-align: center;
 }
