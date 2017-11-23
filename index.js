@@ -7,6 +7,8 @@ var elem_purple = document.getElementById("purple");
 var elem_yellow = document.getElementById("yellow");
 var elem_green = document.getElementById("green");
 
+var button = document.getElementById("button");
+
 tab = ["red", "purple", "yellow", "green"];
 
 function getRandomIntInclusive(min, max) {
@@ -18,24 +20,33 @@ function getRandomIntInclusive(min, max) {
 function playSequence() {
   number_list = []; // permet de n'avoir q'un seul élément
   number_list.push(getRandomIntInclusive(1, 4));
-  console.log(number_list[0]);
+  console.log("number : "+ number_list[0]);
   changeOpacity(document.getElementById(tab[number_list[0]-1]));
-
-  changeOpacity();
-  return number_list;
+  //return number_list;
 }
 
 function changeOpacity(elem) {
   elem.style.opacity="0.4";
   setTimeout(function(){ elem.style.opacity="1"; }, 100);
-
 };
 
 function showNumberElem(elem) {
   var elem_clicked = elem.getAttribute("class");
-  console.log(elem_clicked);
-  // return elem_clicked;
+  console.log("elem cliked :"+ elem_clicked);
+  isGoodAnswer(elem_clicked, number_list[0]);
+  button.disabled = false;
 };
+
+function isGoodAnswer(number_clicked, number) {
+  // déterminer si la couleur cliquée (elem_clicked) est bien celle indiquée(number_list[0])
+    if (number_clicked == number) {
+      console.log("gagné !");
+    }
+    else {
+      console.log("perdu !");
+    }
+    button.disabled = false;
+}
 
 elem_red.addEventListener('click', function() {
   changeOpacity(elem_red);
@@ -54,6 +65,12 @@ elem_green.addEventListener('click', function() {
     showNumberElem(elem_green);
 });
 
-function chooseNumber() {
 
-}
+button.addEventListener('click', function() {
+    playSequence();
+    button.disabled = true;
+});
+
+// while (button.disabled == true) {
+//
+// }
